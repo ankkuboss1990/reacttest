@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import { Tabs } from 'antd';
+import 'antd/dist/antd.css';
+
+import Users from './Components/Users';
+import Todo from './Components/Todo';
+const { TabPane } = Tabs;
+
+function callback(key) {
+  console.log(key);
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>
+  <div style={{maxWidth:"800px",margin:"auto"}}>
+      <Tabs defaultActiveKey="1" onChange={callback}>
+       <TabPane tab="Users" key="1">
+      <Users/>
+    </TabPane>
+    <TabPane tab="Todos" key="2">
+      <Todo/>
+    </TabPane>
+   
+  </Tabs>
+  </div>
+  </>
   );
 }
 
